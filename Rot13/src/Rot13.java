@@ -3,15 +3,15 @@ public class Rot13 {
 
     public static void main(String[] args){
 
-        System.out.println(xifraRot13("lmnzZ"));
-        System.out.println(desxifraRot13("vwxíÍ"));
+        System.out.println(xifraRot13("Hola"));
+        System.out.println("------------------");
+        System.out.println(desxifraRot13("Óvùh"));
     }
 
     public static String xifraRot13(String cadena){
 
-        String mayuscules = "AÀBCDEÉÈFGHIÍÏJKLMNOÓÒPQRSTUÚÜVWXYZ";
-        String minuscules = "aàbcdeéèfghiíïjklmnòóopqrstúüvwxxyz"; // 35
-        
+        String mayuscules = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ";
+        String minuscules = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz"; // 41
         String result = "";
 
         char[] min = minuscules.toCharArray();
@@ -25,8 +25,8 @@ public class Rot13 {
                 char pos_may = may[j];
 
                 if (pos_may == caracter){
-                    if (Math.abs(j + 13)>35){
-                        result = result + may[Math.abs(35 - j - 13)];
+                    if (Math.abs(j + 13)>=41){
+                        result = result + may[Math.abs(41 - j - 13)];
                     }
                     else{
                         result = result + may[Math.abs(j + 13)];
@@ -37,8 +37,8 @@ public class Rot13 {
             for (int j = 0; j < min.length; j++){
                 char pos_min = min[j];
                 if (pos_min == caracter){
-                    if (Math.abs(j + 13)>35){
-                        result = result + min[Math.abs(35 - j - 13)];
+                    if (Math.abs(j + 13)>=41){
+                        result = result + min[Math.abs(41 - j - 13)];
                     }
                     else{
                         result = result + min[Math.abs(j + 13)];
@@ -47,6 +47,7 @@ public class Rot13 {
             }
 
         }
+        System.out.println("Còdig xifrat");
         return result;
     }
 
@@ -55,8 +56,8 @@ public class Rot13 {
 
     public static String desxifraRot13(String cadena){
 
-        String mayuscules = "AÀBCDEÉÈFGHIÍÏJKLMNOÓÒPQRSTUÚÜVWXYZ";
-        String minuscules = "aàbcdeéèfghiíïjklmnòóopqrstúüvwxxyz"; // 35
+        String mayuscules = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ";
+        String minuscules = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz"; // 41
         
         String result = "";
 
@@ -72,12 +73,10 @@ public class Rot13 {
 
                 if (pos_may == caracter){
                     if ((j - 13) < 0){
-                        result = result + may[Math.abs(35 + j - 13)];
-                        System.out.println("Entra 3 --> " + i + " " + result);
+                        result = result + may[Math.abs(41 + j - 13)];
                     }
                     else{
                         result = result + may[Math.abs(j - 13)];
-                        System.out.println("Entra 4 --> " + i + " " + result);
                     }
                 }
             }
@@ -86,16 +85,15 @@ public class Rot13 {
                 char pos_min = min[j];
                 if (pos_min == caracter){
                     if ((j - 13) < 0){
-                        result = result + min[Math.abs(35 + j - 13)];
-                        System.out.println("Entra 1 --> " + i + " " + result);
+                        result = result + min[Math.abs(41 + j - 13)];
                     }
                     else{
                         result = result + min[Math.abs(j - 13)];
-                        System.out.println("Entra 2 --> " + i + " " + result);
                     }
                 }
             }
         }
+        System.out.println("Còdig desxifrat");
         return result;
     }
 }
