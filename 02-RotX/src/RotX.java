@@ -52,6 +52,42 @@ public class RotX {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     public static String codificador(String cadena, int desplacament, boolean xifratge){
 
         String result = "";
