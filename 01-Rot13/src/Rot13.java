@@ -8,93 +8,95 @@ public class Rot13 {
         System.out.println(desxifraRot13("Óvùh"));
     }
 
-
-    public static String xifraRot13(String cadena){
-
-        String mayuscules = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ";
-        String minuscules = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz"; // 41
-        String result = "";
-
-        char[] min = minuscules.toCharArray();
-        char[] may = mayuscules.toCharArray();
-
-        for (int i = 0; i < cadena.length(); i++){
-            char caracter = cadena.charAt(i);
-
-            for (int j = 0; j < may.length; j++){
-
-                char pos_may = may[j];
-
-                if (pos_may == caracter){
-                    if (Math.abs(j + 13)>=41){
-                        result = result + may[Math.abs(41 - j - 13)];
-                    }
-                    else{
-                        result = result + may[Math.abs(j + 13)];
-                    }
-                }
-            }
-
-            for (int j = 0; j < min.length; j++){
-                char pos_min = min[j];
-                if (pos_min == caracter){
-                    if (Math.abs(j + 13)>=41){
-                        result = result + min[Math.abs(41 - j - 13)];
-                    }
-                    else{
-                        result = result + min[Math.abs(j + 13)];
-                    }
-                }
-            }
-
-        }
-        System.out.println("Còdig xifrat");
-        return result;
+    public static String xifrat13(String cadena){
+        codificador(cadena, true);
+    }
+    public static String desxifrat13(String cadena){
+        codificador(cadena, false);
     }
 
+    public static String codificador(String cadena, boolean xifrador){
+        if(xifrador == true){
+            String mayuscules = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ";
+            String minuscules = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz"; // 41
+            String result = "";
 
+            char[] min = minuscules.toCharArray();
+            char[] may = mayuscules.toCharArray();
 
+            for (int i = 0; i < cadena.length(); i++){
+                char caracter = cadena.charAt(i);
 
-    public static String desxifraRot13(String cadena){
+                for (int j = 0; j < may.length; j++){
 
-        String mayuscules = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ";
-        String minuscules = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz"; // 41
-        
-        String result = "";
+                    char pos_may = may[j];
 
-        char[] min = minuscules.toCharArray();
-        char[] may = mayuscules.toCharArray();
-
-        for (int i = 0; i < cadena.length(); i++){
-            char caracter = cadena.charAt(i);
-
-            for (int j = 0; j < may.length; j++){
-
-                char pos_may = may[j];
-
-                if (pos_may == caracter){
-                    if ((j - 13) < 0){
-                        result = result + may[Math.abs(41 + j - 13)];
-                    }
-                    else{
-                        result = result + may[Math.abs(j - 13)];
+                    if (pos_may == caracter){
+                        if (Math.abs(j + 13)>=41){
+                            result = result + may[Math.abs(41 - j - 13)];
+                        }
+                        else{
+                            result = result + may[Math.abs(j + 13)];
+                        }
                     }
                 }
-            }
 
-            for (int j = 0; j < min.length; j++){
-                char pos_min = min[j];
-                if (pos_min == caracter){
-                    if ((j - 13) < 0){
-                        result = result + min[Math.abs(41 + j - 13)];
-                    }
-                    else{
-                        result = result + min[Math.abs(j - 13)];
+                for (int j = 0; j < min.length; j++){
+                    char pos_min = min[j];
+                    if (pos_min == caracter){
+                        if (Math.abs(j + 13)>=41){
+                            result = result + min[Math.abs(41 - j - 13)];
+                        }
+                        else{
+                            result = result + min[Math.abs(j + 13)];
+                        }
                     }
                 }
+
             }
+            System.out.println("Còdig xifrat");
+            return result;
         }
-        System.out.println("Còdig desxifrat");
-        return result;
+        else{
+            String mayuscules = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ";
+            String minuscules = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz"; // 41
+            
+            String result = "";
+
+            char[] min = minuscules.toCharArray();
+            char[] may = mayuscules.toCharArray();
+
+            for (int i = 0; i < cadena.length(); i++){
+                char caracter = cadena.charAt(i);
+
+                for (int j = 0; j < may.length; j++){
+
+                    char pos_may = may[j];
+
+                    if (pos_may == caracter){
+                        if ((j - 13) < 0){
+                            result = result + may[Math.abs(41 + j - 13)];
+                        }
+                        else{
+                            result = result + may[Math.abs(j - 13)];
+                        }
+                    }
+                }
+
+                for (int j = 0; j < min.length; j++){
+                    char pos_min = min[j];
+                    if (pos_min == caracter){
+                        if ((j - 13) < 0){
+                            result = result + min[Math.abs(41 + j - 13)];
+                        }
+                        else{
+                            result = result + min[Math.abs(j - 13)];
+                        }
+                    }
+                }
+            }
+            System.out.println("Còdig desxifrat");
+            return result;
+        }
     }
 }
