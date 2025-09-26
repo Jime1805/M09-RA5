@@ -1,9 +1,9 @@
 public class RotX {
 
     public static void main(String[] args){
-        forcaBrutaRotX("Óvùh");
+        forcaBrutaRotX("Òvug");
         System.out.println(xifraRotX("Hola", 13));
-        System.out.println(desxifraRotX("Óvùh", 13));
+        System.out.println(desxifraRotX("Òvug", 13));
     }
 
     public static String xifraRotX(String cadena, int desplacament){
@@ -21,15 +21,15 @@ public class RotX {
     public static String codificador(String cadena, int desplacament, boolean xifratge, boolean forca){
 
         String result = "";
-        char[] min = "aäáàbcdeëéèfghiïìíjklmnoöòópqrstuùúüvwxyz".toCharArray(); // 41
-        char[] may = "AÄÁÀBCDEËÉÈFGHIÏÌÍJKLMNOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray(); // 41
+        char[] min = "aäáàbcçdeëéèfghiïìíjklmnñoöòópqrstuùúüvwxyz".toCharArray(); // 43
+        char[] may = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray(); // 43
 
         if (forca == true){
             System.out.println();
             System.out.println("Sistema per força bruta:");
             System.out.println("------------------------------------");
 
-            for (int k = 0; k < 41; k++){
+            for (int k = 0; k < 43; k++){
                 result = "";
                 for (int i = 0; i < cadena.length(); i++){
                     char caracter = cadena.charAt(i);
@@ -40,7 +40,7 @@ public class RotX {
 
                         if (pos_may == caracter){
                             if ((j - k) < 0){
-                                result = result + may[Math.abs(41 + j - k)];
+                                result = result + may[Math.abs(43 + j - k)];
                             }
                             else{
                                 result = result + may[Math.abs(j - k)];
@@ -52,7 +52,7 @@ public class RotX {
                         char pos_min = min[j];
                         if (pos_min == caracter){
                             if ((j - k) < 0){
-                                result = result + min[Math.abs(41 + j - k)];
+                                result = result + min[Math.abs(43 + j - k)];
                             }
                             else{
                                 result = result + min[Math.abs(j - k)];
@@ -78,8 +78,8 @@ public class RotX {
                         char pos_may = may[j];
 
                         if (pos_may == caracter){
-                            if (Math.abs(j + desplacament)>=41){
-                                result = result + may[Math.abs(41 - j - desplacament)];
+                            if (Math.abs(j + desplacament)>=43){
+                                result = result + may[Math.abs(43 - j - desplacament)];
                             }
                             else{
                                 result = result + may[Math.abs(j + desplacament)];
@@ -90,8 +90,8 @@ public class RotX {
                     for (int j = 0; j < min.length; j++){
                         char pos_min = min[j];
                         if (pos_min == caracter){
-                            if (Math.abs(j + desplacament)>=41){
-                                result = result + min[Math.abs(41 - j - desplacament)];
+                            if (Math.abs(j + desplacament)>=43){
+                                result = result + min[Math.abs(43 - j - desplacament)];
                             }
                             else{
                                 result = result + min[Math.abs(j + desplacament)];
@@ -116,7 +116,7 @@ public class RotX {
 
                     if (pos_may == caracter){
                         if ((j - desplacament) < 0){
-                            result = result + may[Math.abs(41 + j - desplacament)];
+                            result = result + may[Math.abs(43 + j - desplacament)];
                         }
                         else{
                             result = result + may[Math.abs(j - desplacament)];
@@ -128,7 +128,7 @@ public class RotX {
                     char pos_min = min[j];
                     if (pos_min == caracter){
                         if ((j - desplacament) < 0){
-                            result = result + min[Math.abs(41 + j - desplacament)];
+                            result = result + min[Math.abs(43 + j - desplacament)];
                         }
                         else{
                             result = result + min[Math.abs(j - desplacament)];
