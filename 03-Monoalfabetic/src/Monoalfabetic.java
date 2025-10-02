@@ -7,14 +7,15 @@ public class Monoalfabetic {
     private static char [] permutat = permutaAlfabet(alfabet);
 
     public static void main(String[] args){
-        
+        System.out.print("Alfabet:  ");
         System.out.println(alfabet);
+        System.out.print("Permutat: ");
         System.out.println(permutat);
 
         String xifrat = xifraMonoAlfa("Hola");
-        //System.out.println(xifrat);
+        System.out.println("Missatge xifrat:    " + xifrat);
         String desxifrat = desxifraMonoAlfa(xifrat);
-        //System.out.println(desxifrat);
+        System.out.println("Missatge desxifrat: " + desxifrat);
     }
 
     public static char [] permutaAlfabet(char[] alfabet){
@@ -37,52 +38,23 @@ public class Monoalfabetic {
         String result = "";
         for (int i = 0; i < cadena.length(); i++){
             char caracter = Character.toUpperCase(cadena.charAt(i));
-            System.out.print(caracter + " -> ");
             for (int j = 0; j < alfabet.length; j++){
                 if (caracter == alfabet[j]){
-                    System.out.println(permutat[i]);
-                    result += permutat[i];
+                    result += permutat[j];
                 }
             }
-            //System.out.println(result);
         }
-        System.out.println(permutat);
         return result;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static String desxifraMonoAlfa(String cadena){
-        char[] alf = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray(); // 43
-        char[] alfPerm = permutaAlfabet(alf);
-
         String result = "";
 
         for (int i = 0; i < cadena.length(); i++){
             char caracter = cadena.charAt(i);
-            for (int j = 0; j < alf.length; j++){
-                if (caracter == alfPerm[j]){
-                    result += alf[i];
+            for (int j = 0; j < alfabet.length; j++){
+                if (caracter == permutat[j]){
+                    result += alfabet[j];
                 }
             }
         }
