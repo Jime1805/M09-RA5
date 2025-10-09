@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Monoalfabetic {
-    private static char [] alfabet = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray();;
+    private static char [] alfabet = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray();
     private static char [] permutat = permutaAlfabet(alfabet);
 
     public static void main(String[] args){
