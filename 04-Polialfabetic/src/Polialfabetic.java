@@ -57,12 +57,23 @@ public class Polialfabetic {
         for(int i = 0; i < msg.length(); i++){
             char caracter = msg.charAt(i);
             permutaAlfabet(alfabet);
-            for (int j = 0; j < alfabet.length; j++){
-                if (Character.isLetter(caracter))
-                if (Character.toUpperCase(caracter) == alfabet[j]){
-                    result += permutat[j];
+            if (Character.isLetter(caracter)){
+                for (int j = 0; j < alfabet.length; j++){
+                    if (Character.toUpperCase(caracter) == alfabet[j]){
+                        if (Character.isUpperCase(caracter)){
+                            result += permutat[j];
+                        }
+                        else{
+                            result += Character.toLowerCase(permutat[j]);
+                        }
+                        
+                    }
                 }
             }
+            else{
+                result += caracter;
+            }
+            
         }
 
         return result;
@@ -70,16 +81,27 @@ public class Polialfabetic {
 
     public static String desxifraPoliAlfa(String msg){
         String result = "";
-        for(int i = 0; i < msg.length(); i++){
+        for (int i = 0; i < msg.length(); i ++){
             char caracter = msg.charAt(i);
             permutaAlfabet(alfabet);
-            for (int j = 0; j < alfabet.length; j++){
-                if (Character.toUpperCase(caracter) == permutat[j]){
-                    result += alfabet[j];
-                }
+            if (Character.isLetter(caracter)){
+                for (int j = 0; j < alfabet.length; j++){
+                    if (Character.toUpperCase(caracter) == permutat[j]){
+                        if (Character.isUpperCase(caracter)){
+                            result += alfabet[j];
+                        }
+                        else{
+                            result += Character.toLowerCase(alfabet[j]);
+                        }
+                        
+                    }
+                }  
             }
+            else{
+                result += caracter;
+            }
+            
         }
-
         return result;
     }
 }
