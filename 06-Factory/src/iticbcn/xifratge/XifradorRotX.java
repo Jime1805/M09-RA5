@@ -1,6 +1,6 @@
 package iticbcn.xifratge;
 
-public class XifratgeRotX implements Xifrador{
+public class XifradorRotX implements Xifrador{
 
     public String xifraRotX(String cadena, int desplacament){
         return codificador(cadena, desplacament, true, false);

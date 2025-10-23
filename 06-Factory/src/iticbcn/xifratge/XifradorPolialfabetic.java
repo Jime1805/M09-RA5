@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class XifratgePolialfabetic implements Xifrador{
+public class XifradorPolialfabetic implements Xifrador{
 
     private static char [] alfabet = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray();
     private static char [] permutat;

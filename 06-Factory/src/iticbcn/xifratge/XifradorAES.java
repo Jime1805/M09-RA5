@@ -9,7 +9,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class XifratgeAES implements Xifrador{
+public class XifradorAES implements Xifrador{
 
     public static final String ALGORISME_XIFRAT = "AES";
     public static final String ALGORISME_HASH = "SHA-256";

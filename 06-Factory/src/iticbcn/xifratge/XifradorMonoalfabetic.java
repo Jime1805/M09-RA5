@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class XifratgeMonoalfabetic implements Xifrador{
+public class XifradorMonoalfabetic implements Xifrador{
     private static char [] alfabet = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray();
     private static char [] permutat;
 
-    public XifratgeMonoalfabetic(){
+    public XifradorMonoalfabetic(){
         permutat = permutaAlfabet(alfabet);
     }
 
