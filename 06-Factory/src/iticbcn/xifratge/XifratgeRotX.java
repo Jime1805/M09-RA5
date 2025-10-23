@@ -1,24 +1,20 @@
-public class XifradorRotX {
+package iticbcn.xifratge;
 
-    public static void main(String[] args){
-        forcaBrutaRotX("Òvug");
-        System.out.println(xifraRotX("Hola", 13));
-        System.out.println(desxifraRotX("Òvug", 13));
-    }
+public class XifratgeRotX implements Xifrador{
 
-    public static String xifraRotX(String cadena, int desplacament){
+    public String xifraRotX(String cadena, int desplacament){
         return codificador(cadena, desplacament, true, false);
     }
 
-    public static String desxifraRotX(String cadena, int desplacament){
+    public String desxifraRotX(String cadena, int desplacament){
         return codificador(cadena, desplacament, false, false);
     }
 
-    public static void forcaBrutaRotX(String cadena){
+    public void forcaBrutaRotX(String cadena){
         codificador(cadena, 0, false, true);
     }
     
-    public static String codificador(String cadena, int desplacament, boolean xifratge, boolean forca){
+    public String codificador(String cadena, int desplacament, boolean xifratge, boolean forca){
 
         String result = "";
         char[] min = "aäáàbcçdeëéèfghiïìíjklmnñoöòópqrstuùúüvwxyz".toCharArray(); // 43

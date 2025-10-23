@@ -1,24 +1,18 @@
+package iticbcn.xifratge;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class XifradorMonoalfabetic {
+public class XifratgeMonoalfabetic implements Xifrador{
     private static char [] alfabet = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray();
-    private static char [] permutat = permutaAlfabet(alfabet);
+    private static char [] permutat;
 
-    public static void main(String[] args){
-        System.out.print("Alfabet:  ");
-        System.out.println(alfabet);
-        System.out.print("Permutat: ");
-        System.out.println(permutat);
-
-        String xifrat = xifraMonoAlfa("Hola");
-        System.out.println("Missatge xifrat:    " + xifrat);
-        String desxifrat = desxifraMonoAlfa(xifrat);
-        System.out.println("Missatge desxifrat: " + desxifrat);
+    public XifratgeMonoalfabetic(){
+        permutat = permutaAlfabet(alfabet);
     }
 
-    public static char [] permutaAlfabet(char[] alfabet){
+    public char [] permutaAlfabet(char[] alfabet){
 
         List<String> list_alfabet = new ArrayList<String>();
         
@@ -34,7 +28,7 @@ public class XifradorMonoalfabetic {
         return result;
     }
 
-    public static String xifraMonoAlfa(String cadena){
+    public String xifraMonoAlfa(String cadena){
         String result = "";
         for (int i = 0; i < cadena.length(); i++){
             char caracter = Character.toUpperCase(cadena.charAt(i));
@@ -47,7 +41,7 @@ public class XifradorMonoalfabetic {
         return result;
     }
 
-    public static String desxifraMonoAlfa(String cadena){
+    public String desxifraMonoAlfa(String cadena){
         String result = "";
 
         for (int i = 0; i < cadena.length(); i++){
@@ -60,6 +54,4 @@ public class XifradorMonoalfabetic {
         }
         return result;
     }
-
-
 }

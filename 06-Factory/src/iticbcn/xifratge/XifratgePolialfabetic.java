@@ -1,21 +1,23 @@
+package iticbcn.xifratge;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 
-public class XifradorPolialfabetic {
+public class XifratgePolialfabetic implements Xifrador{
 
     private static char [] alfabet = "AÄÁÀBCÇDEËÉÈFGHIÏÌÍJKLMNÑOÖÒÓPQRSTUÙÚÜVWXYZ".toCharArray();
     private static char [] permutat;
     private static long clauSecreta = 1234L;
     private static Random random;
 
-    public static void initRandom(long clau){
+    public void initRandom(long clau){
         random = new java.util.Random(clau);
     }
 
-    public static void permutaAlfabet(char[] alfabet){
+    public void permutaAlfabet(char[] alfabet){
 
         List<String> list_alfabet = new ArrayList<String>();
         
@@ -31,28 +33,7 @@ public class XifradorPolialfabetic {
         permutat =  result;
     }
 
-    public static void main(String[] args) {
-        String msgs[] = {"Test 01 àrbitre, coixí, Perímetre",
-                        "Test 02 Taüll, DÍA, año",
-                        "Test 03 Peça, Òrrius, Bòvila"};
-        String msgsXifrats[] = new String[msgs.length];
-
-        System.out.println("Xifratge:\n-------");
-        for (int i = 0; i < msgs.length; i++) {
-            initRandom(clauSecreta);
-            msgsXifrats[i] = xifraPoliAlfa(msgs[i]);
-            System.out.printf("%-34s -> %s%n", msgs[i], msgsXifrats[i]);
-        }
-
-        System.out.println("Desxifratge:\n-----------");
-        for (int i = 0; i < msgs.length; i++) {
-            initRandom(clauSecreta);
-            String msg = desxifraPoliAlfa(msgsXifrats[i]);
-            System.out.printf("%-34s -> %s%n", msgsXifrats[i], msg);
-        }
-    }
-
-    public static String xifraPoliAlfa(String msg){
+    public String xifraPoliAlfa(String msg){
         String result = "";
         for(int i = 0; i < msg.length(); i++){
             char caracter = msg.charAt(i);
@@ -79,7 +60,7 @@ public class XifradorPolialfabetic {
         return result;
     }
 
-    public static String desxifraPoliAlfa(String msg){
+    public String desxifraPoliAlfa(String msg){
         String result = "";
         for (int i = 0; i < msg.length(); i ++){
             char caracter = msg.charAt(i);
