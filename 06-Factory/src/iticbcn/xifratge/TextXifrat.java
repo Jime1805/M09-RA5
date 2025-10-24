@@ -16,9 +16,4 @@ public class TextXifrat{
     public byte[] getDades() {
         return dades;
     }
-
-    @Override
-    public String toString() {
-        return "TextXifrat [dades=" + Arrays.toString(dades) + "]";
-    }
 }
