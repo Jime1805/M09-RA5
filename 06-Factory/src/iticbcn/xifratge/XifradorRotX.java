@@ -2,7 +2,10 @@ package iticbcn.xifratge;
 
 public class XifradorRotX implements Xifrador{
 
+    private int desplacament;
+
     public String xifraRotX(String cadena, int desplacament){
+        this.desplacament = desplacament;
         return codificador(cadena, desplacament, true, false);
     }
 
@@ -134,6 +137,27 @@ public class XifradorRotX implements Xifrador{
             }
             System.out.println("Còdig desxifrat");
             return result;
+        }
+    }
+    //preguntar
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+        try {
+            byte[] xifrat = xifraRotX(msg, desplacament).getBytes(clau);
+            return new TextXifrat(xifrat);
+        } 
+        catch (Exception e) {
+            throw new ClauNoSuportada("Error xifrant amb AES: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
+        try {
+            if (clau == null || clau.isEmpty()) throw new ClauNoSuportada("La clave no existe");
+            return desxifraRotX(xifrat.toString(), desplacament);
+        } 
+        catch (Exception e) {
+            throw new ClauNoSuportada("Error desxifrant amb AES: " + e.getMessage());
         }
     }
 }

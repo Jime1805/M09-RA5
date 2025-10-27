@@ -85,4 +85,25 @@ public class XifradorPolialfabetic implements Xifrador{
         }
         return result;
     }
+
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+        try {
+            byte[] xifrat = xifraPoliAlfa(msg).getBytes(clau);
+            return new TextXifrat(xifrat);
+        } 
+        catch (Exception e) {
+            throw new ClauNoSuportada("Error xifrant amb AES: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
+        try {
+            if (clau == null || clau.isEmpty()) throw new ClauNoSuportada("La clave no existe");
+            return desxifraPoliAlfa(xifrat.toString());
+        } 
+        catch (Exception e) {
+            throw new ClauNoSuportada("Error desxifrant amb AES: " + e.getMessage());
+        }
+    }
 }
